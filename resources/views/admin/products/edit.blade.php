@@ -38,17 +38,15 @@
                     <!-- Category -->
                     <div class="mt-4">
                         <x-input-label for="category_id" :value="__('Category')" />
-
-                        <select name="category_id" id="category_id" class="py-2 rounded-lg pl-3 w-full border border-slate-300">
-                            <option value="">Choose product category</option>
-                            @forelse ($categories as $category)
-                                <option value="{{ $category->id }}" {{ old('category_id', $product->category_id) == $category->id ? 'selected' : '' }}>
-                                    {{ $category->name }}
-                                </option>
-                            @empty
-                                <option value="">No categories available</option>
-                            @endforelse
-                        </select>
+                        
+                            <select name="category_id" id="category_id" class="py-2 rounded-lg pl-3 w-full border border-slate-300">
+                                <option value="{{ $product->category->id }}">{{ $product->category->name }}</option>
+                                @forelse ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @empty
+                                    
+                                @endforelse
+                            </select>
 
                         <x-input-error :messages="$errors->get('category_id')" class="mt-2" />
                     </div>
@@ -69,8 +67,9 @@
                         <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                     </div>
             
-                    <div class="flex items-center justify-end mt-4">
-            
+                    <div class="flex items-center justify-end mt-4 gap-1">
+
+                        <a href="{{ route('admin.products.index') }}" class="font-bold py-3 px-5 rounded-full text-white bg-red-700">Kembali</a>
                         <button type="submit" class="font-bold py-3 px-5 rounded-full text-white bg-indigo-700 text-sm">
                             {{ __('Update Product') }}
                         </button>

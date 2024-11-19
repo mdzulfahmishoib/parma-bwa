@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('phone_number');
             $table->string('proof');
             $table->string('city');
-            $table->boolean('id_paid');
+            $table->boolean('is_paid');
             $table->unsignedBigInteger('total_amount');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->text('notes');

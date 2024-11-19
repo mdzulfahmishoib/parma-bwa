@@ -39,7 +39,7 @@
                         </div>
                     </div>
                 @empty
-                    <p class="text-base text-slate-200">Belum ada produk yang ditambahkan</p>
+                    <p class="text-base text-slate-400">Belum ada produk yang ditambahkan</p>
                 @endforelse
                 
 

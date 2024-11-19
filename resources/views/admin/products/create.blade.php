@@ -64,8 +64,10 @@
                         <x-input-error :messages="$errors->get('photo')" class="mt-2" />
                     </div>
             
-                    <div class="flex items-center justify-end mt-4">
-            
+                    <div class="flex items-center justify-end mt-4 gap-1">
+
+                        <a href="{{ route('admin.products.index') }}" class="font-bold py-3 px-5 rounded-full text-white bg-red-700">Kembali</a>
+                        
                         <button type="submit" class="font-bold py-3 px-5 rounded-full text-white bg-indigo-700 text-sm">
                             {{ __('Add Product') }}
                         </button>
